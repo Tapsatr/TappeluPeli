@@ -41,7 +41,8 @@ public class EnemyAI : MonoBehaviour {
           //  enemyHealth.isTargetted = false;
             anim.SetBool("isDead", true);
          //   enemyHealth.canvas.SetActive(false);
-            Object.Destroy(gameObject, 3.0f);
+            RagdollActive();
+            Object.Destroy(gameObject, 20.0f);
             return;
         }
            
@@ -99,5 +100,19 @@ public class EnemyAI : MonoBehaviour {
             anim.SetBool("isAttacking", false);
         }
 	}
+    void RagdollActive()
+    {
+        Component[] components = GetComponentsInChildren(typeof(Transform));
+
+        foreach (Component c in components)
+        {
+            if (c.GetComponent<Rigidbody>() != null)
+            {
+                Rigidbody d = c.GetComponent<Rigidbody>();
+                d.isKinematic = false;
+                d.useGravity = true;
+            }
+        }
+    }
 
 }
