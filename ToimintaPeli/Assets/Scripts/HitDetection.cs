@@ -12,7 +12,7 @@ public class HitDetection : MonoBehaviour {
 
         
         Debug.Log("osuma");
-        eh.curHealth -= 20;
+        eh.curHealth -= 100;
     }
 
 	// Use this for initialization
