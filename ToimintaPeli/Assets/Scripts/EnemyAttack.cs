@@ -30,7 +30,7 @@ public class EnemyAttack : MonoBehaviour {
         if (attackTimer == 0)
         {
               Attack();
-              Debug.Log(coolDown);
+             
               attackTimer = coolDown;
         }
 
@@ -45,7 +45,7 @@ public class EnemyAttack : MonoBehaviour {
 
         float direction = Vector3.Dot(dir, transform.forward);  // palauttaa -1 ja 1 väliltä luvun jos takana negatiivinen, edessä positiivinen, sivuilla 0
 
-        Debug.Log(direction);
+        
 
         if (distance < 2.5f)
         {
