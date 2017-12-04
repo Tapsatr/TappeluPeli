@@ -44,7 +44,7 @@ public class PlayerHealth : MonoBehaviour {
        
         public void AddjustCurrentHealth(int adj) {
                 curHealth += adj;
-                healthbar.value = curHealth;
+               // healthbar.value = curHealth;
                
                 if(curHealth < 0)
                         curHealth =  0;

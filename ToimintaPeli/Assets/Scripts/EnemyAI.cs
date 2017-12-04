@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour {
     public float maxDistance;
     public bool Dead;
     Animator anim;
+    private CharacterController controller;
 
     string state = "patrol";
     public GameObject[] waypoints;
@@ -26,7 +27,9 @@ public class EnemyAI : MonoBehaviour {
     {
         anim = GetComponent<Animator>();
         GameObject go = GameObject.FindGameObjectWithTag("Player");
+        controller = GetComponent<CharacterController>();
 
+        
         target = go.transform;
 
         
@@ -51,7 +54,6 @@ public class EnemyAI : MonoBehaviour {
 
         if (state == "patrol" && waypoints.Length > 0)
         {
-            anim.SetBool("isIdle", false);
             anim.SetBool("isWalking", true);
             if (Vector3.Distance(waypoints[currentWP].transform.position, transform.position) < accuracyWP)
             {
@@ -73,16 +75,18 @@ public class EnemyAI : MonoBehaviour {
         {
             
             Debug.DrawLine(target.position, myTransform.position, Color.yellow); // viiva vihollisesta pelaajaan
-            // katso kohdetta                        mihin nyt katsotaan                            vihollisen ja pelaajan sijainnit               
-            myTransform.rotation = Quaternion.Slerp(myTransform.rotation, Quaternion.LookRotation(target.position - myTransform.position), rotationSpeed * Time.deltaTime);
+            // katso kohdetta                        mihin nyt katsotaan                            vihollisen ja pelaajan sijainnit       
+            direction = target.position - myTransform.position;
+            direction.y = 0;
+            myTransform.rotation = Quaternion.Slerp(myTransform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
 
-            anim.SetBool("isIdle", false);
             if (Vector3.Distance(target.position, myTransform.position) > maxDistance)
             {
 
                 state = "pursuing";
                 //liikkuminen kohdetta kohti
-                myTransform.position += myTransform.forward * moveSpeed * Time.deltaTime;
+               // myTransform.position
+                controller.SimpleMove(myTransform.forward * moveSpeed);
                 anim.SetBool("isWalking", true);
                 anim.SetBool("isAttacking", false);
             }

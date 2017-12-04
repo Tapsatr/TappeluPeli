@@ -9,7 +9,7 @@ public class EnemyAttack : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        attackTimer = 0;
+        target = GameObject.FindGameObjectWithTag("Player");
         coolDown = 2.0f;
     }
 
@@ -30,6 +30,7 @@ public class EnemyAttack : MonoBehaviour {
         if (attackTimer == 0)
         {
               Attack();
+              Debug.Log(coolDown);
               attackTimer = coolDown;
         }
 
