@@ -1620,7 +1620,7 @@ MonoBehaviour:
   target: {fileID: 0}
   moveSpeed: 2
   rotationSpeed: 2
-  maxDistance: 2
+  maxDistance: 3
   Dead: 0
   waypoints: []
 --- !u!114 &114627137885572072

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HitDetection : MonoBehaviour {
     public int health;
+    public int damage;
 
     void OnTriggerEnter(Collider other)
     {
@@ -12,7 +13,7 @@ public class HitDetection : MonoBehaviour {
 
         
         Debug.Log("osuma");
-        eh.curHealth -= 100;
+        eh.curHealth -= damage;
     }
 
 	// Use this for initialization
