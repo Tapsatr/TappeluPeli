@@ -13,6 +13,18 @@ public class EnemyHealth : MonoBehaviour {
         // Use this for initialization
         void Start () {
             anim = GetComponent<Animator>();
+            
+        }
+        void OnTriggerEnter(Collider other)
+        {
+            var rigidbody = other.GetComponent<Rigidbody>();
+
+            if(rigidbody.velocity.magnitude > 2)
+            {
+                Debug.Log("KovempiVauhti");
+                curHealth -= 50;
+            }
+         
         }
        
         // Update is called once per frame

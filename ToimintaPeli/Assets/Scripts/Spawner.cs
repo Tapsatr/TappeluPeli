@@ -21,11 +21,9 @@ public class Spawner : MonoBehaviour {
 
     void SpawnEnemy()
     {
-        Debug.Log("SpawnENemy");
+      
         float spawnRadius = radius;
-        Debug.Log(spawnPos);
-       
-
+        
         //transform.position = Random.insideUnitSphere * spawnRadius;
 
         Instantiate(spawnObject, spawnPos.transform.position, Quaternion.identity);

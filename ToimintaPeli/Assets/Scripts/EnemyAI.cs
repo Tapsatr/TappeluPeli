@@ -42,10 +42,9 @@ public class EnemyAI : MonoBehaviour {
         if (enemyHealth.curHealth <= 0)
         {
           //  enemyHealth.isTargetted = false;
-            anim.SetBool("isDead", true);
          //   enemyHealth.canvas.SetActive(false);
             RagdollActive();
-            Object.Destroy(gameObject, 20.0f);
+            Object.Destroy(gameObject, 60.0f);
             return;
         }
            
@@ -107,15 +106,25 @@ public class EnemyAI : MonoBehaviour {
     void RagdollActive()
     {
         Component[] components = GetComponentsInChildren(typeof(Transform));
+        BoxCollider box = GetComponent<BoxCollider>();
+        Rigidbody rb = GetComponent<Rigidbody>();
+
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+        box.enabled = false;
+        controller.enabled = false;
 
         foreach (Component c in components)
         {
-            if (c.GetComponent<Rigidbody>() != null)
-            {
-                Rigidbody d = c.GetComponent<Rigidbody>();
-                d.isKinematic = false;
-                d.useGravity = true;
-            }
+           
+            
+                if (c.GetComponent<Rigidbody>() != null)
+                {
+                    Rigidbody d = c.GetComponent<Rigidbody>();
+                    d.isKinematic = false;
+                    d.useGravity = true;
+                }
+            
+          
         }
     }
 
