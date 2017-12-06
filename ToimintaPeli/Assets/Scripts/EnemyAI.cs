@@ -109,7 +109,7 @@ public class EnemyAI : MonoBehaviour {
         BoxCollider box = GetComponent<BoxCollider>();
         Rigidbody rb = GetComponent<Rigidbody>();
 
-        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+        rb.constraints = RigidbodyConstraints.FreezeAll;
         box.enabled = false;
         controller.enabled = false;
 
