@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour {
     public bool Dead;
     Animator anim;
     private CharacterController controller;
+ 
 
     string state = "patrol";
     public GameObject[] waypoints;
@@ -70,7 +71,7 @@ public class EnemyAI : MonoBehaviour {
             this.transform.Translate(0, 0, Time.deltaTime * moveSpeed);
         }
 
-        if (Vector3.Distance(target.position, myTransform.position) < 20)
+        if (Vector3.Distance(target.position, myTransform.position) < 50)
         {
             
             Debug.DrawLine(target.position, myTransform.position, Color.yellow); // viiva vihollisesta pelaajaan
