@@ -5,7 +5,7 @@ using UnityEngine;
 public class PunchHand : MonoBehaviour
 {
     public SteamVR_TrackedObject hand;
-    private Rigidbody rBody;
+    public Rigidbody rBody;
 
 
 	// Use this for initialization

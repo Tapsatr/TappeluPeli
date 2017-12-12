@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/scene.unity
+    guid: 9be54f978b6defc4c8b7512c90a6963c
+  - enabled: 1
+    path: Assets/Toka.unity
+    guid: 00000000000000000000000000000000

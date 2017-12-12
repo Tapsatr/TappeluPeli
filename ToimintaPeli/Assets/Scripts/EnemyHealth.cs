@@ -17,13 +17,17 @@ public class EnemyHealth : MonoBehaviour {
         }
         void OnTriggerEnter(Collider other)
         {
-            var rigidbody = other.GetComponent<Rigidbody>();
 
-            if(rigidbody.velocity.magnitude > 2)
+
+        if (other.GetComponent<Rigidbody>() != null)
+        {
+            var rigidbody = other.GetComponent<Rigidbody>();
+            if (rigidbody.velocity.magnitude > 2)
             {
                 Debug.Log("KovempiVauhti");
                 curHealth -= 50;
             }
+        }
          
         }
        

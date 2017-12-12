@@ -9,11 +9,15 @@ public class HitDetection : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
 
-        EnemyHealth eh = other.GetComponent<EnemyHealth>();
+        if (other.GetComponent<EnemyHealth>() != null)
+        {
+            EnemyHealth eh = other.GetComponent<EnemyHealth>();
+            Debug.Log("osuma");
+            eh.curHealth -= damage;
+        }
 
         
-        Debug.Log("osuma");
-        eh.curHealth -= damage;
+       
     }
 
 	// Use this for initialization

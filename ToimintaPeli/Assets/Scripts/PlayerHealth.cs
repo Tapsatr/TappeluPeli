@@ -60,7 +60,7 @@ public class PlayerHealth : MonoBehaviour {
                 //healthBarLengh = (Screen.width / 2) * (curHealth / (float)maxHealth);
             if(curHealth ==0)
             {
-                SceneManager.LoadScene("level2");
+                SceneManager.LoadScene("scene");
             }
         }
         private void Regen()
